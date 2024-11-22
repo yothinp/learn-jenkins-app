@@ -29,7 +29,7 @@ pipeline {
             }
             steps {
                 sh '''
-                    npm install -g serve
+                    npm install serve
                     serve -s build
                     npx playwright test
                 '''
@@ -37,9 +37,4 @@ pipeline {
         }
     }
 
-    post {
-        always {
-            junit 'test-results/junit.xml'
-        }
-    }
 }
